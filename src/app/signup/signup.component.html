@@ -1,0 +1,272 @@
+<section class="h-100" id="background">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo"
+                class="img-fluid"
+                style="
+                  border-top-left-radius: 0.25rem;
+                  border-bottom-left-radius: 0.25rem;
+                "
+              />
+            </div>
+
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Student registration form</h3>
+                
+                <div>
+                  <form
+                    [formGroup]="empform"
+                    #regForm="ngForm"
+                    (ngSubmit)="SaveEmpolyee(regForm)"
+                  >
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" for="form3Example1m"
+                            >First name</label
+                          >
+                          <input
+                            type="text"
+                            name="name"
+                            formControlName="firstname"
+                            id="form3Example1m"
+                            class="form-control form-control-lg"
+                          />
+                          <span
+                            *ngIf="firstname && firstname.invalid && firstname.touched"
+                            class="errormessage"
+                            >Enter valid name</span
+                          >
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" for="form3Example1n"
+                            >Last name</label
+                          >
+                          <input
+                            type="text"
+                            formControlName="lastname"
+                            id="form3Example1n"
+                            class="form-control form-control-lg"
+                          />
+                          <span
+                            *ngIf="lastname && lastname.invalid && lastname.touched"
+                            class="errormessage"
+                            >Enter valid name</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" for="form3Example1m1"
+                            >Mobile number</label
+                          >
+                          <input
+                            type="text"
+                            formControlName="mobile"
+                            id="form3Example1m1"
+                            class="form-control form-control-lg"
+                          />
+                          <span
+                            *ngIf="mobile && mobile.invalid && mobile.touched"
+                            class="errormessage"
+                            >Enter valid number</span
+                          >
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" for="form3Example1n1"
+                            >Registration number</label
+                          >
+                          <input
+                            type="text"
+                            formControlName="regnumber"
+                            id="form3Example1n1"
+                            class="form-control form-control-lg"
+                          />
+                          <span
+                            *ngIf="regnumber && regnumber.invalid && regnumber.touched"
+                            class="errormessage"
+                            >Enter valid number</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form3Example8">DOB</label>
+                      <input
+                        type="text"
+                        formControlName="dob"
+                        id="form3Example8"
+                        class="form-control form-control-lg"
+                      />
+                      <span *ngIf="dob && dob.invalid && dob.touched" class="errormessage"
+                        >Enter valid dob</span
+                      >
+                      <!-- <input [matDatepicker]="myDatepicker">
+                     <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+                     <mat-datepicker #myDatepicker></mat-datepicker> -->
+                    </div>
+
+                    <div
+                      class="d-md-flex justify-content-start align-items-center mb-4 py-2"
+                    >
+                      <h6 class="mb-0 me-4">Gender:</h6>
+
+                      <div class="form-check form-check-inline mb-0 me-4">
+                        <input
+                          class="form-check-input"
+                          formControlName="gender"
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="femaleGender"
+                          value="option1"
+                        />
+                        <label class="form-check-label" for="femaleGender"
+                          >Female</label
+                        >
+                      </div>
+
+                      <div class="form-check form-check-inline mb-0 me-4">
+                        <input
+                          class="form-check-input"
+                          formControlName="gender"
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="maleGender"
+                          value="option2"
+                        />
+                        <label class="form-check-label" for="maleGender"
+                          >Male</label
+                        >
+                      </div>
+
+                      <div class="form-check form-check-inline mb-0">
+                        <input
+                          class="form-check-input"
+                          formControlName="gender"
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="otherGender"
+                          value="option3"
+                        />
+                        <label class="form-check-label" for="otherGender"
+                          >Other</label
+                        >
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <select class="select" formControlName="branch">
+                          <option value="1">Branch</option>
+                          <option value="2">Mech</option>
+                          <option value="3">IT</option>
+                          <option value="4">EE</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <select class="select" formControlName="year">
+                          <option value="1">Year</option>
+                          <option value="2">2022</option>
+                          <option value="3">2021</option>
+                          <option value="4">2020</option>
+                          <option value="5">2019</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form3Example9"
+                        >Adress</label
+                      >
+                      <input
+                        type="text"
+                        formControlName="adress"
+                        id="form3Example9"
+                        class="form-control form-control-lg"
+                      />
+                      <span
+                        *ngIf="adress && adress.invalid && adress.touched"
+                        class="errormessage"
+                        class="errormessage"
+                        >Enter valid adress</span
+                      >
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form3Example90"
+                        >Pincode</label
+                      >
+                      <input
+                        type="text"
+                        formControlName="pincode"
+                        id="form3Example90"
+                        class="form-control form-control-lg"
+                      />
+                      <span
+                        *ngIf="pincode && pincode.invalid && pincode.touched"
+                        class="errormessage"
+                      >
+                        Enter valid pincode</span
+                      >
+                    </div>
+
+                    <!-- <div class="form-outline mb-4">
+                    <input type="text" id="form3Example99" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example99">Course</label>
+                  </div> -->
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form3Example97"
+                        >Email ID</label
+                      >
+                      <input
+                        type="email"
+                        name="email"
+                        formControlName="email"
+                        id="form3Example97"
+                        class="form-control form-control-lg"
+                      />
+                      <span *ngIf="email && email.invalid && email.touched" class="errormessage"
+                        >Enter valid Email</span
+                      >
+                    </div>
+                   
+                    <div class="d-flex justify-content-end pt-3">
+                      <button type="button" class="btn btn-light btn-lg">
+                        Reset all
+                      </button>
+                      <button
+                        type="submit"
+                        [disabled]="empform.invalid"
+                        class="btn btn-warning btn-lg ms-2"
+                      >
+                        Submit form
+                      </button>
+                      
+                    </div>
+                    <!-- <span [ngClass]="errorclass">{{errormessage}}</span> -->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
